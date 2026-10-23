@@ -973,6 +973,9 @@ body.phone.is-home header{padding-top:30px}
 .jr-nest-i{border:1px solid var(--t-bd);background:var(--t-bg);box-shadow:var(--t-sh);border-radius:12px;padding:10px 14px 8px}
 .jr-nest-i .jr-go{box-shadow:none;margin:0 0 4px}
 .jr-nest-i p{margin:2px 0 2px;font-size:14.5px;line-height:1.6}
+/* גרסה 20: קישור חזרה למושג־האב בראש החלונית של מושג מקונן */
+.cv-where .cv-up{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.cv-where .cv-up:focus-visible{outline:2px solid currentColor;outline-offset:2px}
 </style>
 <style id="header-v14">
 /* ===== גרסה 14 · הלוגו מתחת ללשוניות, במרכז ובגדול, בכל התצוגות (בקשת מנוחה). מסך הפתיחה הוסר: האתר נפתח בתרשים ===== */
@@ -1375,6 +1378,18 @@ body:not(.phone) .cv{width:100%;max-width:100%;right:auto;transform:none;margin-
 #cvwrap{transform-origin:100% 0}
 #cvwrap,.cv-shift{transition:translate .3s cubic-bezier(.2,.7,.2,1),scale .3s cubic-bezier(.2,.7,.2,1)}
 @media (prefers-reduced-motion: reduce){#cvwrap,.cv-shift{transition:none}}
+
+/* v21: תת־נושאים בתוך התיבה */
+.cv-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;margin-top:8px;padding-top:7px;border-top:1px solid #E1E6ED;width:100%;box-sizing:border-box}
+.cv-chip,.jr-chip{display:inline-block;box-sizing:border-box;max-width:100%;padding:3px 8px;border:1px solid #D2DAE4;border-radius:7px;background:#F8F9FB;color:#1C2430;font-family:var(--font-body);font-weight:500;font-size:12px;line-height:1.3;text-align:center;cursor:pointer;white-space:normal;transition:border-color .15s,background .15s,color .15s}
+.cv-chip:hover,.cv-chip:focus-visible,.jr-chip:hover,.jr-chip:focus-visible{border-color:#1F4A80;color:#1F4A80;background:#FFFFFF}
+.cv-chip:focus-visible,.jr-chip:focus-visible{outline:2px solid #2B6E6A;outline-offset:1px}
+.cv .cvn .cv-chips{margin-top:9px;margin-inline:-8px;width:calc(100% + 16px);padding-inline:2px}
+.cv .cvn .cv-chip{padding:3px 6px}
+.mnode>summary .cv-chips{justify-content:flex-start;margin:7px 0 2px;padding-top:6px}
+.cv-chip-p{font-size:13px;padding:4px 9px;font-weight:500}
+.jr-c .cv-chips{margin-top:8px}
+.jr-chip{font-size:12.5px}
 </style>
 </head>
 <body>
@@ -1382,7 +1397,6 @@ body:not(.phone) .cv{width:100%;max-width:100%;right:auto;transform:none;margin-
   <div class="bar">
     <div class="tabs" id="tabs"></div>
     <input id="q" type="search" placeholder="חיפוש חופשי: אהבת ישראל, תפילה, משיח, צמצום...">
-    <label class="tagtoggle"><input type="checkbox" id="tagToggle"> הצגת תוויות</label>
   </div>
   <h1 class="brand"><a id="homeLink" href="#" aria-label="בר השגה – מושגי חסידות בהישג יד"><svg class="brand-wm" viewBox="47 -607 3296 621" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><g transform="scale(1,-1)"><rect class="wm-bar" x="60" y="252" width="3035" height="42" rx="21"/><g class="wm-l" style="--wm-k:wmL0"><path d="M32 0 62 161H342Q354 188 360.5 207.0Q367 226 370.0 244.5Q373 263 373 287Q373 326 366.0 347.0Q359 368 342.5 376.0Q326 384 296 384H122Q87 384 72.5 403.5Q58 423 58 459Q58 493 65.0 522.0Q72 551 79.5 571.0Q87 591 90 597H109V575Q109 562 116.0 556.0Q123 550 132 550H326Q354 550 375.5 538.5Q397 527 410.0 503.5Q423 480 423 443V300Q423 251 411.0 216.5Q399 182 389 161H456L425 0Z" transform="translate(2877.00,0.00)"/></g><circle class="wm-dot" cx="3095" cy="273" r="50.00"/><g class="wm-l" style="--wm-k:wmL1"><path d="M369 -4Q363 -4 357.0 -3.5Q351 -3 346 -2V6Q351 13 353.0 25.0Q355 37 355 75V311Q355 354 344.0 369.0Q333 384 301 384H92Q54 384 37.0 401.0Q20 418 20 462Q20 495 26.5 523.0Q33 551 40.5 571.0Q48 591 51 597H70V579Q70 567 76.5 558.5Q83 550 98 550H301Q363 550 384.5 523.5Q406 497 408 441L425 89Q427 44 414.0 20.0Q401 -4 369 -4Z" transform="translate(2378.00,0.00)"/></g><g class="wm-l" style="--wm-k:wmL2"><path d="M405 -4Q399 -4 393.0 -3.5Q387 -3 382 -2V6Q389 17 390.0 29.0Q391 41 391 75V239Q391 289 398.0 319.5Q405 350 412.5 364.5Q420 379 422 382V384H129Q92 384 74.5 400.5Q57 417 57 462Q57 495 64.0 523.5Q71 552 78.5 571.5Q86 591 88 597H107V586Q107 565 113.0 557.5Q119 550 136 550H451Q475 550 475 527V394L468 385Q453 370 450.0 335.5Q447 301 451 250L463 89Q467 42 452.0 19.0Q437 -4 405 -4ZM85 -4Q75 -4 63 -1V6Q67 11 70.0 19.5Q73 28 73 48V191Q73 244 88.5 268.0Q104 292 130 292Q134 292 137.0 291.5Q140 291 146 289V283Q140 277 137.0 265.0Q134 253 135 236L143 71Q145 32 127.5 14.0Q110 -4 85 -4Z" transform="translate(1600.00,0.00)"/></g><g class="wm-l" style="--wm-k:wmL3"><path d="M139 0Q120 75 108 125.5Q96 176 90 212Q84 248 84 279Q84 325 94 356Q98.6 370.3 103.6 385.2L92 387Q56 393 44 413Q32 433 32 463Q32 506 44.5 540Q57 574 67 597H86V582Q86 569 92 561.5Q98 554 114 551L160 544Q194 540 204 514Q214 488 214 459Q214 440 210 415.5Q206 391 194 361H185Q182 369 177 372Q172 375 157 377L144.3 379Q141.8 369.2 139.5 356.5Q136 337 136 309Q136 270 143 241Q150 212 159 192Q168 172 174 159H221.8L314.2 385.3L302 387Q265 392 253 412.5Q241 433 241 463Q241 506 253.5 540Q266 574 276 597H295V583Q295 570 301 562Q307 554 323 551L370 544Q404 540 414.5 514Q425 488 425 459Q425 440 421 415.5Q417 391 405 361H396Q393 369 384.5 372.5Q376.9 375.6 361.7 378.4L272.7 159H424Q439 195 452.5 223Q466 251 479 273Q492 295 504 313L528 350Q538 366 539 374.5Q540 383 528 385L493 391Q468 395 459.5 411.5Q451 428 451 452Q451 479 458 508Q465 537 473 561.5Q481 586 486 597H505V583Q505 567 510.5 560Q516 553 530 551L570 545Q594 541 606.5 530.5Q619 520 619 494V450Q619 431 617 416Q615 401 610.5 389.5Q606 378 599 368L563 314Q538 276 518.5 233.5Q499 191 485 147.5Q471 104 462 59L449 0Z" transform="translate(937.00,0.00)"/></g><g class="wm-l" style="--wm-k:wmL4"><path d="M20 0 55 161H168Q188 161 201.0 177.0Q214 193 220.5 215.5Q227 238 228 260L233 329Q235 356 226.5 365.5Q218 375 200 378L125 389Q98 394 86.5 406.0Q75 418 75 450Q75 490 87.0 528.0Q99 566 110 597H129V581Q129 567 135.0 560.0Q141 553 160 550L238 539Q267 535 280.5 520.5Q294 506 292 467L283 326Q282 298 287.5 273.5Q293 249 302.5 227.5Q312 206 322.0 186.5Q332 167 340 148Q354 110 354.0 73.5Q354 37 349 0H330Q324 39 313.5 66.0Q303 93 286.5 114.5Q270 136 243 158L185 0Z" transform="translate(544.00,0.00)"/></g><g class="wm-l" style="--wm-k:wmL5"><path d="M405 -4Q399 -4 393.0 -3.5Q387 -3 382 -2V6Q389 17 390.0 29.0Q391 41 391 75V239Q391 289 398.0 319.5Q405 350 412.5 364.5Q420 379 422 382V384H129Q92 384 74.5 400.5Q57 417 57 462Q57 495 64.0 523.5Q71 552 78.5 571.5Q86 591 88 597H107V586Q107 565 113.0 557.5Q119 550 136 550H451Q475 550 475 527V394L468 385Q453 370 450.0 335.5Q447 301 451 250L463 89Q467 42 452.0 19.0Q437 -4 405 -4ZM85 -4Q75 -4 63 -1V6Q67 11 70.0 19.5Q73 28 73 48V191Q73 244 88.5 268.0Q104 292 130 292Q134 292 137.0 291.5Q140 291 146 289V283Q140 277 137.0 265.0Q134 253 135 236L143 71Q145 32 127.5 14.0Q110 -4 85 -4Z" transform="translate(0.00,0.00)"/></g></g></svg><span class="brand-tag">מושגי חסידות בהישג יד</span></a></h1>
   <p class="sub">מהבעל שם טוב ועד הרבי: מה לימד כל אחד, ואיך הוא הבין כל נושא. לחצי על כל דבר כדי להעמיק.</p>
@@ -8979,7 +8993,7 @@ const isPhone=()=>MODE?MODE==="phone":innerWidth<760;
 function applyMode(){document.body.classList.toggle("phone",isPhone());const b=document.getElementById("modeBtn");if(b)b.textContent=isPhone()?"תצוגת מחשב":"תצוגת טלפון"}
 let cur="home";
 const $=id=>document.getElementById(id);
-const lv=k=>`<span class="lv ${k}">${k==="basic"?"בסיסי":"מעמיק"}</span>`;
+const lv=k=>""; /* v21: תוויות בסיסי/מעמיק הוסרו */
 const BASICKEY=["אלוקות והשגחה","הנשמה","התבוננות","תפילה","תורה ומצוות","אהבת ישראל","שמחה","שליחות","חינוך","משיח וגאולה","דירה בתחתונים","בינוני","בחירה","תשובה","מה זו חסידות","שבת","צדקה","לחיות עם הזמן","נשים","לוח השנה","ניגון","למה ירדה"];
 const topicLvl=t=>BASICKEY.some(k=>t.n.includes(k))?"basic":"adv";
 const PAIRBASIC=["התבוננות","ביטול","עצבות","אתכפיא","צדיק","נפש אלוקית","אהבה","יראה","משיח","מעשה"];
@@ -8996,7 +9010,7 @@ const tc=f=>f.g==="chassid"?"chassid":f.g==="family"?"family":"rebbe";
 const tl=f=>({rebbe:"♛ רבי",chassid:"חסיד",family:"משפחת הרבי"})[tc(f)];
 const badge=f=>`<span class="badge b-${tc(f)}">${tl(f)}</span>`;
 const LEGEND=`<div class="legend"><span class="badge b-rebbe">♛ רבי</span> נשיאי חב״ד ושורשי החסידות <span class="badge b-chassid">חסיד</span> תלמידים וחסידים גדולים <span class="badge b-family">משפחת הרבי</span></div>`;
-const LVLEGEND=`<div class="legend tagonly">${lv("basic")} מתאים למי שמתחיל ${lv("adv")} מעמיק, למי שמכיר</div>`;
+const LVLEGEND=""; /* v21: מקרא בסיסי/מעמיק הוסר */
 function filled(f){return T.filter(t=>t.c[f.id]);}
 function srcLine(s){
   const ok=!!s&&s.startsWith("✓");
@@ -9014,9 +9028,9 @@ const hl=(x,s)=>s?x.split(s).join(`<mark>${escH(s)}</mark>`):x;
 /* ----- מסך פתיחה ----- */
 function vHome(){
  view.innerHTML=`<div class="home-grid">${HOME.map(([k,t,d,l])=>`<a class="home-card" data-k="${k}" tabindex="0" role="button">
-  <div class="hc-top"><h3>${t}</h3><span class="hc-lv">${l.length>1?`<span class="lv basic">בסיסי + מעמיק</span>`:lv(l[0])}</span></div><p>${d}</p><span class="hc-go">כניסה ←</span></a>`).join("")}</div>
+  <div class="hc-top"><h3>${t}</h3></div><p>${d}</p><span class="hc-go">כניסה ←</span></a>`).join("")}</div>
   ${LVLEGEND}`;
- view.insertAdjacentHTML("afterbegin",`<a class="home-card start-here" data-k="gen" tabindex="0" role="button"><div class="hc-top"><h3>מתחילים כאן</h3><span class="lv basic">בסיסי</span></div><p>חדש בחסידות? כאן רואים מי היו הרבנים ומה כל אחד לימד, בקצרה. אחר כך אפשר להמשיך לתרשים ולשאלות הגדולות.</p><span class="hc-go">להתחיל ←</span></a>`);
+ view.insertAdjacentHTML("afterbegin",`<a class="home-card start-here" data-k="gen" tabindex="0" role="button"><div class="hc-top"><h3>מתחילים כאן</h3></div><p>חדש בחסידות? כאן רואים מי היו הרבנים ומה כל אחד לימד, בקצרה. אחר כך אפשר להמשיך לתרשים ולשאלות הגדולות.</p><span class="hc-go">להתחיל ←</span></a>`);
  view.querySelectorAll(".home-card").forEach(c=>{const go=()=>{setTab(c.dataset.k);window.scrollTo({top:0})};c.onclick=go;c.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();go()}}});
 }
 
@@ -9204,7 +9218,7 @@ function vFlowPhone(){
  const nxt=id=>cvOut(id,C).map(e=>`<b>${cvNode(e.to).t}</b>`);
  let h=cvToggle(C);
  h+=C.stages.map((s,k)=>`<details class="mstage cvp"${(C.mode==="basic"||k<2)?" open":""}><summary><span class="cv-no">${CV_HEB[s.no]}</span> ${s.st} <span class="cv-ct">(${s.nodes.length})</span></summary>${s.nodes.map(n=>{const nx=nxt(n.id);
-   return `<details class="mnode" data-node="${n.id}"><summary>${C.step[n.id]?`<span class="cv-step">${C.step[n.id]}</span>`:""}${n.t}${n.sub?`<small>${n.sub}</small>`:""}${nx.length?`<span class="mnext cv-pn">ממשיך אל: ${nx.join(" · ")}</span>`:""}</summary>${cvPhoneDet(n,C)}</details>`}).join("")}</details>`).join("");
+   return `<details class="mnode" data-node="${n.id}"><summary>${C.step[n.id]?`<span class="cv-step">${C.step[n.id]}</span>`:""}${n.t}${n.sub?`<small>${n.sub}</small>`:""}${typeof cvChipsH==="function"?cvChipsH(n.id,"cv-chip cv-chip-p"):""}${nx.length?`<span class="mnext cv-pn">ממשיך אל: ${nx.join(" · ")}</span>`:""}</summary>${cvPhoneDet(n,C)}</details>`}).join("")}</details>`).join("");
  h+=cvOffHTML(C,true);
  if(typeof SUBFLOWS!=="undefined"&&SUBFLOWS.length){
   h+=`<h2 id="cv-sfh">תרשימי משנה</h2>`+SUBFLOWS.map((sf,i)=>{const ed=sf.edges||[];
@@ -9287,6 +9301,13 @@ function vFlow(){
  }
 }
 /* פריסה וקווים */
+/* v21: תת־הנושאים מוצגים כתיבות קטנות בתוך התיבה של המושג עצמו (בתרשים, בטלפון ובמסע). לחיצה על תיבה קטנה פותחת את החלונית שלה. */
+function cvChipsH(id,cls){if(typeof CV_NEST==="undefined"||!CV_NEST[id])return "";const k=CV_NEST[id].map(x=>[x,(typeof cvNodeN==="function"?cvNodeN(x):cvNode(x))]).filter(a=>a[1]);if(!k.length)return "";
+ return `<span class="cv-chips" aria-label="${typeof CV_NEST_H!=="undefined"?CV_NEST_H:""}">${k.map(([x,n])=>`<span class="${cls}" role="button" tabindex="0" data-sub="${x}">${n.t}</span>`).join("")}</span>`}
+function cvChipGo(c,e){e.preventDefault();e.stopPropagation();const id=c.dataset.sub;if(typeof cvOpen==="function")cvOpen(id)}
+document.addEventListener("click",e=>{const c=e.target&&e.target.closest?e.target.closest(".cv-chip"):null;if(c)cvChipGo(c,e)},true);
+document.addEventListener("keydown",e=>{if(e.key!=="Enter"&&e.key!==" ")return;const t=e.target;if(!t||!t.classList)return;
+ if(t.classList.contains("cv-chip"))cvChipGo(t,e);else if(t.classList.contains("jr-chip")){e.preventDefault();e.stopPropagation();t.click()}},true);
 function cvDraw(C,ch,on){
  const Wd=ch.clientWidth||1000;
  const cols=Math.max(...C.stages.map(s=>s.nodes.length));
@@ -9297,7 +9318,7 @@ function cvDraw(C,ch,on){
  const slotX=q=>gx0+gridW-BW/2-q*(BW+G)/2; /* q בחצאי עמודות, 0 = הימנית */
  /* תיבות */
  ch.innerHTML=`<svg class="cv-svg" aria-hidden="true"></svg>`+C.stages.map((s,k)=>`<div class="cv-band" data-k="${k}"><div class="cv-bh"><span class="cv-no">${CV_HEB[s.no]}</span><span class="cv-tt">${s.st}</span></div></div>`).join("")+
-  C.stages.map(s=>s.nodes.map(n=>`<button type="button" class="cvn fcnode" data-id="${n.id}" style="width:${BW}px">${C.step[n.id]?`<span class="cv-step" aria-label="שלב ${C.step[n.id]}">${C.step[n.id]}</span>`:""}<b>${n.t}</b>${n.sub?`<small>${n.sub}</small>`:""}</button>`).join("")).join("");
+  C.stages.map(s=>s.nodes.map(n=>`<button type="button" class="cvn fcnode" data-id="${n.id}" style="width:${BW}px">${C.step[n.id]?`<span class="cv-step" aria-label="שלב ${C.step[n.id]}">${C.step[n.id]}</span>`:""}<b>${n.t}</b>${n.sub?`<small>${n.sub}</small>`:""}${typeof cvChipsH==="function"?cvChipsH(n.id,"cv-chip"):""}</button>`).join("")).join("");
  const B={};ch.querySelectorAll(".cvn").forEach(b=>B[b.dataset.id]=b);
  /* מיקום אופקי: תכנות דינמי, כדי שקווים בין שלבים יהיו כמה שיותר ישרים */
  const X={},Q2=2*(cols-1);
@@ -9540,7 +9561,8 @@ function srRun(raw){
  /* 1. מושגים */
  const C1=[],C2=[],C3=[];
  W.forEach(st=>st.nodes.forEach(n=>{
-  const cat=SR_STCAT[st.st.trim()]||"";
+  const hp=typeof CV_NESTP!=="undefined"&&CV_NESTP[n.id],hs=hp&&W.find(x=>x.nodes.some(m=>m.id===hp)); /* v20: מושג מקונן מקבל את הצבע של ההורה */
+  const cat=SR_STCAT[(hs||st).st.trim()]||"";
   const al=(typeof ALIAS!=="undefined"&&ALIAS[n.id]||[]).filter(a=>has(a)||aliasIn(a,s)).sort((a,b)=>(NORMQ(b)===s)-(NORMQ(a)===s)||(s.includes(NORMQ(b)))-(s.includes(NORMQ(a)))||a.length-b.length);
   const m=(MORE[n.id]||[]).filter(x=>x&&has(x[0]+" "+x[1]));
   const row={n,cat,go:"flow",nid:n.id};
@@ -9623,12 +9645,8 @@ q.oninput=srRender;
 q.addEventListener("keydown",e=>{if(e.key==="Enter"){const s=NORMQ(q.value.trim());if(s.length<2)return;if(res.style.display==="none"||!srHits.length)srRender();if(srHits.length){e.preventDefault();srGo(0);q.blur()}}else if(e.key==="Escape"){res.style.display="none"}});
 /* תיקון גרסה 5: חזרה לתיבת החיפוש מציגה שוב את התוצאות */
 q.onfocus=()=>{if(res.style.display==="none"&&NORMQ(q.value.trim()).length>=2)q.oninput()};
-(function(){
- const tg=$("tagToggle");if(!tg)return;
- let on=false;try{on=localStorage.getItem("mapTags")==="1"}catch(e){}
- const apply=()=>{document.body.classList.toggle("show-tags",on);tg.checked=on;try{localStorage.setItem("mapTags",on?"1":"0")}catch(e){}};
- tg.onchange=()=>{on=tg.checked;apply()};apply();
-})();
+/* v21: הכפתור ״הצגת תוויות״ והתוויות בסיסי/מעמיק הוסרו לבקשת מנוחה; התוויות כבויות תמיד */
+try{localStorage.removeItem("mapTags")}catch(e){}document.body.classList.remove("show-tags");
 $("homeLink").onclick=e=>{e.preventDefault();setTab("home");window.scrollTo({top:0})};
 window.addEventListener("popstate",e=>{const v=e.state&&e.state.v?e.state.v:"home";setTab(v,false)});
 (function(){const h=(location.hash||"").replace("#","");const ok=views.some(x=>x[0]===h);try{history.replaceState({v:ok?h:"home"},"","#"+(ok?h:"home"))}catch(e){}setTab(ok?h:"home",false)})();
@@ -9748,25 +9766,59 @@ function annotate(root){
    w90–w93 יוצאים משכבת ״להעמקה״ שבתרשים ומוצגים בתוך החלונית של w7. שכבת קוד בלבד: הנתונים לא שונו.
    כל טקסט נלקח כמו שהוא: t, sub, simple מהמושג, והמקור מתרשים המשנה sf_tzadik_rasha (התיבה בעלת אותו שם). */
 /* גרסה 18 (בקשת מנוחה): ״שור, כבש ועז״ נכנס לתוך ״שתי נפשות״, שם הנפש הבהמית */
-const CV_NEST={w7:["w90","w91","w92","w93"],w6:["w130"]};
+/* גרסה 20 (בקשת מנוחה, ״תכניס הכל״): עוד 17 מושגים נכנסים לתוך מושג־אב. שכבת קוד בלבד: אף טקסט, תווית או מקור לא שונו.
+   - מושג מקונן שהיה תיבה בתרשים למתקדמים (גבול ובלי גבול, ״אור״ ולא ״שפע״, משל הצורף, ״מהלכים״ ו״עומדים״, העלאת מ״ן, שתי תקופות בימות המשיח) יוצא מהתרשים ועובר לתוך ההורה.
+   - חץ אל מושג מקונן או ממנו מוצג אצל ההורה (CV_RE). חץ שנעשה מההורה אל עצמו, או כפול לחץ קיים, לא מוצג.
+     po = מופיע רק ברשימות שבחלונית (״בא מ־״ / ״ממשיך אל״), כי גם קודם לא צויר בתרשים (צד אחד שלו היה בשכבת ״להעמקה״).
+   - בחלונית של המושג המקונן עצמו נשארים החיצים המקוריים שלו. */
+const CV_NEST={w7:["w90","w91","w92","w93"],w6:["w130"],
+ w1:["w180","w181"],w2:["w205"],w3:["w198"],w4:["w203","w175","w150","w174"],w5:["w60"],w196:["w83"],w15:["w197"],
+ w17:["w82"],w8:["w199"],w9:["w80","w81"],w183:["w184"],w12:["w186"]};
 const CV_NESTP=Object.fromEntries(Object.entries(CV_NEST).flatMap(([p,a])=>a.map(x=>[x,p])));
 const CV_NEST_H="פירוט בתוך התיבה";
-function cvNestSrc(id){const n=cvNode(id);if(!n||typeof SUBFLOWS==="undefined")return "";
- for(const s of SUBFLOWS){const m=(s.nodes||[]).find(x=>x.t===n.t&&x.src);if(m)return srcLine((m.conf==="ודאי"?"✓ ":"")+m.src)}return ""}
+/* [מאיפה, לאן] של החץ המקורי; התווית נלקחת מ-MAINEDGES כמו שהיא */
+const CV_RE=[["w1","w60"],["w60","w62"],["w73","w83",1],["w31","w82",1],["w32","w80",1]];
+let cvNodeN=id=>cvNode(id);
+function cvNestSrc(id){const n=cvNodeN(id);if(!n||typeof SUBFLOWS==="undefined")return "";
+ for(const s of SUBFLOWS){const m=(s.nodes||[]).find(x=>x.t===n.t&&x.src);if(m)return srcLine((m.conf==="ודאי"?"✓ ":"")+m.src)}
+ /* v20: אם אין תיבה בתרשים משנה, המקור המאומת (✓) שבסוף ״בעומק״ של המושג, כמו שהוא */
+ const d=String(n.deep||""),i=d.lastIndexOf("(✓");if(i<0)return "";let k=0;for(let j=i;j<d.length;j++){if(d[j]==="(")k++;else if(d[j]===")"&&--k===0)return srcLine(d.slice(i+1,j))}return ""}
 (function(){
  const NESTED=new Set(Object.keys(CV_NESTP));
- const kids=id=>(CV_NEST[id]||[]).filter(x=>cvNode(x));
+ /* v20: אינדקס קבוע של המושגים, כי בזמן ציור שכבת ״להעמקה״ המושגים המקוננים מוסתרים זמנית מ-W */
+ const NN=Object.fromEntries(cvAllN().map(n=>[n.id,n]));cvNodeN=id=>NN[id]||cvNode(id);
+ const kids=id=>(CV_NEST[id]||[]).filter(x=>NN[x]);
+ const D=W[W.length-1];
+ /* v20: מושג מקונן שהיה בשלב של התרשים למתקדמים עובר לשכבה האחרונה (מוסתרת שם), כדי שהתרשים, המונים והמסע יחושבו בלעדיו */
+ W.slice(0,-1).forEach(s=>{const out=s.nodes.filter(n=>NESTED.has(n.id));if(out.length){s.nodes=s.nodes.filter(n=>!NESTED.has(n.id));D.nodes.push(...out)}});
+ /* v20: ברשימת ״להעמקה״ של ההורה לא חוזרים המושגים שבתוכו (הם מופיעים ב״פירוט בתוך התיבה״) */
+ Object.keys(CV_NEST).forEach(p=>{if(CHARTS.deeper[p])CHARTS.deeper[p]=CHARTS.deeper[p].filter(x=>CV_NESTP[x]!==p)});
+ /* v20: החיצים שהופנו אל ההורה */
+ CV_RE.forEach(([f,t,po])=>{const e=MAINEDGES.find(x=>x.from===f&&x.to===t);if(!e)return;
+  const nf=CV_NESTP[f]||f,nt=CV_NESTP[t]||t;
+  if(nf===nt||MAINEDGES.some(x=>x.from===nf&&x.to===nt))return;
+  MAINEDGES.push({from:nf,to:nt,label:e.label,rp:1,po:po?1:0});
+  if(!po)CHARTS.basicHide.push([nf,nt]); /* התרשים למתחילים נשאר כמו שהיה */
+ });
+ const isN=id=>NESTED.has(id);
+ if(typeof cvChart==="function"){const o=cvChart;cvChart=function(){const C=o.apply(this,arguments);C.edges=C.edges.filter(e=>!e.po);return C}}
+ /* רשימות ״בא מ־״ / ״ממשיך אל״: אצל מושג רגיל בלי המושגים המקוננים (החץ שלהם כבר מופנה אליו או אל ההורה) */
+ if(typeof cvOut==="function"){const o=cvOut;cvOut=function(id,C){return o(id,C).filter(e=>isN(id)?!e.rp:!isN(e.to))}}
+ if(typeof cvIn==="function"){const o=cvIn;cvIn=function(id,C){return o(id,C).filter(e=>isN(id)?!e.rp:!isN(e.from))}}
+ if(typeof cvTag==="function"){const o=cvTag;cvTag=function(id){const p=CV_NESTP[id];return p&&cvNode(p)?`<span class="cv-tag">בתוך: ${cvNode(p).t}</span>`:o(id)}}
+ const nestSec=id=>{const k=kids(id);return `<h4>${CV_NEST_H} (${k.length})</h4><ul class="cv-list cv-nest">${k.map(x=>{const n=NN[x];return `<li><button type="button" class="cv-go" data-go="${x}"><span class="nm">${n.t}</span><span class="lb">${n.sub||""}</span></button><p class="cv-nest-s">${n.simple}</p>${cvNestSrc(x)}</li>`}).join("")}</ul>`};
  /* מחשב: חלונית המושג */
- if(typeof cvDetail==="function"){const o=cvDetail;cvDetail=function(id){let h=o(id);const k=kids(id);if(!k.length)return h;
-  const sec=`<h4>${CV_NEST_H} (${k.length})</h4><ul class="cv-list cv-nest">${k.map(x=>{const n=cvNode(x);return `<li><button type="button" class="cv-go" data-go="${x}"><span class="nm">${n.t}</span><span class="lb">${n.sub||""}</span></button><p class="cv-nest-s">${n.simple}</p>${cvNestSrc(x)}</li>`}).join("")}</ul>`;
-  const re=/<h4>להעמקה<\/h4><ul class="cv-list">[\s\S]*?<\/ul>/;return re.test(h)?h.replace(re,sec):h+sec}}
+ if(typeof cvDetail==="function"){const o=cvDetail;cvDetail=function(id){let h=o(id);const p=CV_NESTP[id];
+  if(p&&cvNode(p))h=h.replace(/<div class="cv-where">[\s\S]*?<\/div>/,`<div class="cv-where">${CV_NEST_H}: <button type="button" class="cv-go cv-up" data-go="${p}">${cvNode(p).t}</button></div>`);
+  const k=kids(id);if(!k.length)return h;
+  const sec=nestSec(id),at=h.indexOf("<h4>תרשים משנה</h4>");return at>=0?h.slice(0,at)+sec+h.slice(at):h+sec}}
  /* טלפון: הפירוט בתוך הפריט של המושג */
  if(typeof cvPhoneDet==="function"){const o=cvPhoneDet;cvPhoneDet=function(n,C){let h=o(n,C);const k=kids(n.id);if(!k.length)return h;
-  const sec=`<div class="cv-nest-p"><div class="cv-nest-h">${CV_NEST_H} (${k.length})</div>${k.map(x=>{const m=cvNode(x);return `<details class="mnode" data-node="${x}"><summary>${m.t}${m.sub?`<small>${m.sub}</small>`:""}<span class="cv-nest-s">${m.simple}</span>${cvNestSrc(x)}</summary>${o(m,C).replace(/^\s*<p>[\s\S]*?<b>בקצרה:<\/b>[\s\S]*?<\/p>/,"")}</details>`}).join("")}</div>`;
-  const re=/<div class="mnext">להעמקה:[\s\S]*?<\/div>/;return re.test(h)?h.replace(re,sec):h+sec}}
- /* שכבת ״להעמקה״: בלי ארבעת הסוגים */
- if(typeof cvOffHTML==="function"){const o=cvOffHTML;cvOffHTML=function(C,phone){const D=W[W.length-1],all=D.nodes;D.nodes=all.filter(n=>!NESTED.has(n.id));try{return o(C,phone)}finally{D.nodes=all}}}
- /* פתיחה ישירה (חיפוש, מילון): במחשב דרך החלונית של w7 */
+  const sec=`<div class="cv-nest-p"><div class="cv-nest-h">${CV_NEST_H} (${k.length})</div>${k.map(x=>{const m=NN[x];return `<details class="mnode" data-node="${x}"><summary>${m.t}${m.sub?`<small>${m.sub}</small>`:""}<span class="cv-nest-s">${m.simple}</span>${cvNestSrc(x)}</summary>${o(m,C).replace(/^\s*<p>[\s\S]*?<b>בקצרה:<\/b>[\s\S]*?<\/p>/,"")}</details>`}).join("")}</div>`;
+  const at=h.indexOf('<div class="mnext">תרשים משנה:');return at>=0?h.slice(0,at)+sec+h.slice(at):h+sec}}
+ /* שכבת ״להעמקה״: בלי המושגים המקוננים */
+ if(typeof cvOffHTML==="function"){const o=cvOffHTML;cvOffHTML=function(C,phone){const all=D.nodes;D.nodes=all.filter(n=>!NESTED.has(n.id));try{return o(C,phone)}finally{D.nodes=all}}}
+ /* פתיחה ישירה (חיפוש, מילון): במחשב דרך החלונית של ההורה */
  if(typeof vFlow==="function"){const oF=vFlow;vFlow=function(){const r=oF.apply(this,arguments);const oc=cvOpen;
   cvOpen=function(id){const p=CV_NESTP[id];if(p&&!document.querySelector('#view details.mnode[data-node="'+id+'"]')&&!document.querySelector('#view .cvx[data-id="'+id+'"]')){oc(p);const b=document.querySelector('#cvin .cv-go[data-go="'+id+'"]');if(b)b.click();return}return oc(id)};
   return r}}
@@ -9840,7 +9892,8 @@ function lvHTML(n,l){
 /* ---- עזר ---- */
 const stageOf=id=>{const k=MAIN.findIndex(s=>s.nodes.some(n=>n.id===id));return k};
 const isAsc=k=>k>=SPLIT;
-function where(id){const k=stageOf(id);if(k<0){const p=cvParents(id);return "להעמקה"+(p.length?" · מעמיק את: "+p.map(x=>cvNode(x).t).join(", "):"")}
+function where(id){if(NESTP[id]&&cvNode(NESTP[id]))return CV_NEST_H+": "+cvNode(NESTP[id]).t; /* v20 */
+ const k=stageOf(id);if(k<0){const p=cvParents(id);return "להעמקה"+(p.length?" · מעמיק את: "+p.map(x=>cvNode(x).t).join(", "):"")}
  return `${isAsc(k)?"עלייה":"ירידה"} · שלב ${CV_HEB[k]} · ${MAIN[k].st}`}
 const cnt=n=>n===1?"מושג אחד":n+" מושגים";
 const smooth=()=>RM()?"auto":"smooth";
@@ -9849,7 +9902,7 @@ const smooth=()=>RM()?"auto":"smooth";
 function card(n,i,deep){
  const st=ADV.step[n.id];
  const sub=deep&&cvParents(n.id).length?"מעמיק את: "+cvParents(n.id).map(p=>cvNode(p).t).join(", "):(n.sub||"");
- return `<button type="button" class="jr-c" data-id="${n.id}" style="--i:${i}"><span class="jr-cn">${st?`<span>${st}</span>`:""}</span>${CORE.has(n.id)?`<span class="jr-cr" title="מושג יסוד: מופיע גם בתרשים למתחילים">יסוד</span>`:""}<b>${n.t}</b>${sub?`<small>${sub}</small>`:""}</button>`;
+ return `<button type="button" class="jr-c" data-id="${n.id}" style="--i:${i}"><span class="jr-cn">${st?`<span>${st}</span>`:""}</span>${CORE.has(n.id)?`<span class="jr-cr" title="מושג יסוד: מופיע גם בתרשים למתחילים">יסוד</span>`:""}<b>${n.t}</b>${sub?`<small>${sub}</small>`:""}${typeof cvChipsH==="function"&&!deep?cvChipsH(n.id,"jr-chip"):""}</button>`;
 }
 function stageHTML(s,k){
  const deep=k===NS,cls=deep?"deep":isAsc(k)?"asc":"desc";
@@ -9891,7 +9944,7 @@ function vJourney(){
 function bind(){
  const jr=$("jr");
  jr.querySelectorAll(".jr-st-h").forEach(b=>b.onclick=()=>{const k=+b.closest(".jr-st").dataset.k;if(J.far){setFar(false);setOpen(k,true);goStage(k);return}setOpen(k,!J.open.has(k))});
- jr.querySelectorAll(".jr-c").forEach(c=>c.onclick=()=>openC(c.dataset.id,c));
+ jr.querySelectorAll(".jr-c").forEach(c=>c.onclick=e=>{const sb=e&&e.target&&e.target.closest?e.target.closest(".jr-chip"):null;openC(sb?sb.dataset.sub:c.dataset.id,c)}); /* v21: תת־נושא בתוך הכרטיס פותח את החלונית שלו */
  jr.querySelectorAll(".jr-g-i,.jr-g-deep").forEach(b=>b.onclick=()=>{const k=+b.dataset.k;if(J.far)setFar(false);goStage(k)});
  $("jrtop").onclick=()=>window.scrollTo({top:0,behavior:smooth()});
  $("jrchart").onclick=()=>{setTab("flow");window.scrollTo({top:0})};
@@ -9959,7 +10012,8 @@ function panelHTML(id){
    ${ins.length?`<h4>בא מ־</h4><div class="jr-chips">${ins.map(e=>go(e.from,e.label)).join("")}</div>`:""}
    ${outs.length?`<h4>ממשיך אל</h4><div class="jr-chips">${outs.map(e=>go(e.to,e.label)).join("")}</div>`:""}
    ${par.length?`<h4>מעמיק את</h4><div class="jr-chips">${par.map(x=>go(x)).join("")}</div>`:""}
-   ${(NEST[id]||[]).length?`<h4>${typeof CV_NEST_H!=="undefined"?CV_NEST_H:""} (${NEST[id].length})</h4><div class="jr-nest">${NEST[id].filter(x=>cvNode(x)).map(x=>`<div class="jr-nest-i">${go(x,cvNode(x).sub||"")}<p>${cvNode(x).simple}</p>${typeof cvNestSrc==="function"?cvNestSrc(x):""}</div>`).join("")}</div>`:dp.length?`<h4>להעמקה</h4><div class="jr-chips">${dp.map(x=>go(x,cvNode(x).sub||"")).join("")}</div>`:""}
+   ${dp.length?`<h4>להעמקה</h4><div class="jr-chips">${dp.map(x=>go(x,cvNode(x).sub||"")).join("")}</div>`:""}
+   ${(NEST[id]||[]).length?`<h4>${typeof CV_NEST_H!=="undefined"?CV_NEST_H:""} (${NEST[id].length})</h4><div class="jr-nest">${NEST[id].filter(x=>cvNode(x)).map(x=>`<div class="jr-nest-i">${go(x,cvNode(x).sub||"")}<p>${cvNode(x).simple}</p>${typeof cvNestSrc==="function"?cvNestSrc(x):""}</div>`).join("")}</div>`:""}
    ${sf.length?`<h4>תרשים משנה (זום פנימה)</h4><div class="jr-chips">${sf.map(k=>`<button type="button" class="jr-go sf" data-sf="${k}">${SUBFLOWS[k].title}</button>`).join("")}</div>`:""}
   </div></div>
   <div class="jr-sfv" id="jrsfv"${J.sf===null?" hidden":""}></div>`;
