@@ -1376,12 +1376,41 @@ body:not(.phone) .cv{width:100%;max-width:100%;right:auto;transform:none;margin-
 #cvwrap,.cv-shift{transition:translate .3s cubic-bezier(.2,.7,.2,1),scale .3s cubic-bezier(.2,.7,.2,1)}
 @media (prefers-reduced-motion: reduce){#cvwrap,.cv-shift{transition:none}}
 </style>
+
+<style>
+/* v23: הידעת, דף 404, מצב ריק בחיפוש, טעינה, העתקת קישור */
+.boot{color:var(--faint);font-size:15px;margin:24px 0}
+.dy{background:var(--card);border:1px solid var(--line);border-inline-start:3px solid var(--teal);border-radius:var(--r-md,10px);padding:14px 18px 12px;margin:0 0 16px;max-width:760px}
+.dy-k{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--teal);letter-spacing:.03em;margin:0 0 4px}
+.dy-k i{width:7px;height:7px;border-radius:50%;background:var(--teal);display:inline-block}
+.dy-q{font-family:var(--font-head);font-weight:700;font-size:19px;line-height:1.35;color:var(--head-ink);margin:0 0 4px;max-width:none}
+.dy-x{font-size:15.5px;line-height:1.65;margin:0 0 6px;max-width:none}
+.dy .src{margin:0 0 8px}
+.dy-f{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px}
+.dy-go{font-weight:600;color:var(--navy);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.dy-n{font-family:inherit;font-size:14px;font-weight:600;color:var(--muted);background:none;border:1px solid var(--line);border-radius:14px;padding:2px 12px;cursor:pointer}
+.dy-n:hover{border-color:var(--navy);color:var(--navy)}
+.nf{max-width:760px;background:var(--card);border:1px solid var(--line);border-inline-start:3px solid var(--navy);border-radius:var(--r-md,10px);padding:22px 24px 20px;margin:8px 0 16px}
+.nf-k{font-size:13px;font-weight:700;color:var(--faint);letter-spacing:.06em;font-variant-numeric:tabular-nums;margin:0 0 2px}
+.nf h2{margin:0 0 6px;font-size:26px}
+.nf p{color:var(--muted);font-size:16px;margin:0 0 14px}
+.nf-b{display:flex;flex-wrap:wrap;gap:8px}
+.btn.pri{background:var(--navy);border-color:var(--navy);color:#fff}
+.btn.pri:hover{color:#fff;opacity:.92}
+#results .sr-empty b{display:block;font-family:var(--font-head);font-size:18px;color:var(--head-ink);margin:0 0 2px}
+#results .sr-empty span{display:block}
+.cv-link{font-family:inherit;font-size:13.5px;font-weight:600;color:var(--navy);background:none;border:1px solid var(--line);border-radius:14px;padding:2px 12px;margin:14px 0 4px;cursor:pointer}
+.cv-link:hover{border-color:var(--navy)}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--charcoal);color:#fff;font-size:14.5px;padding:9px 16px;border-radius:10px;z-index:9999;max-width:calc(100vw - 32px);text-align:center;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+@media (max-width:760px){.dy{padding:12px 14px 10px}.dy-q{font-size:17.5px}.dy-x{font-size:15px}.nf{padding:18px 16px}.nf h2{font-size:22px}}
+</style>
 </head>
 <body>
 <header>
   <div class="bar">
     <div class="tabs" id="tabs"></div>
-    <input id="q" type="search" placeholder="חיפוש חופשי: אהבת ישראל, תפילה, משיח, צמצום...">
+    <input id="q" type="search" placeholder="חיפוש בכל ההשתלשלות: צמצום, שמחה, משיח…">
     
   </div>
   <h1 class="brand"><a id="homeLink" href="#" aria-label="בר השגה – מושגי חסידות בהישג יד"><svg class="brand-wm" viewBox="47 -607 3296 621" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><g transform="scale(1,-1)"><rect class="wm-bar" x="60" y="252" width="3035" height="42" rx="21"/><g class="wm-l" style="--wm-k:wmL0"><path d="M32 0 62 161H342Q354 188 360.5 207.0Q367 226 370.0 244.5Q373 263 373 287Q373 326 366.0 347.0Q359 368 342.5 376.0Q326 384 296 384H122Q87 384 72.5 403.5Q58 423 58 459Q58 493 65.0 522.0Q72 551 79.5 571.0Q87 591 90 597H109V575Q109 562 116.0 556.0Q123 550 132 550H326Q354 550 375.5 538.5Q397 527 410.0 503.5Q423 480 423 443V300Q423 251 411.0 216.5Q399 182 389 161H456L425 0Z" transform="translate(2877.00,0.00)"/></g><circle class="wm-dot" cx="3095" cy="273" r="50.00"/><g class="wm-l" style="--wm-k:wmL1"><path d="M369 -4Q363 -4 357.0 -3.5Q351 -3 346 -2V6Q351 13 353.0 25.0Q355 37 355 75V311Q355 354 344.0 369.0Q333 384 301 384H92Q54 384 37.0 401.0Q20 418 20 462Q20 495 26.5 523.0Q33 551 40.5 571.0Q48 591 51 597H70V579Q70 567 76.5 558.5Q83 550 98 550H301Q363 550 384.5 523.5Q406 497 408 441L425 89Q427 44 414.0 20.0Q401 -4 369 -4Z" transform="translate(2378.00,0.00)"/></g><g class="wm-l" style="--wm-k:wmL2"><path d="M405 -4Q399 -4 393.0 -3.5Q387 -3 382 -2V6Q389 17 390.0 29.0Q391 41 391 75V239Q391 289 398.0 319.5Q405 350 412.5 364.5Q420 379 422 382V384H129Q92 384 74.5 400.5Q57 417 57 462Q57 495 64.0 523.5Q71 552 78.5 571.5Q86 591 88 597H107V586Q107 565 113.0 557.5Q119 550 136 550H451Q475 550 475 527V394L468 385Q453 370 450.0 335.5Q447 301 451 250L463 89Q467 42 452.0 19.0Q437 -4 405 -4ZM85 -4Q75 -4 63 -1V6Q67 11 70.0 19.5Q73 28 73 48V191Q73 244 88.5 268.0Q104 292 130 292Q134 292 137.0 291.5Q140 291 146 289V283Q140 277 137.0 265.0Q134 253 135 236L143 71Q145 32 127.5 14.0Q110 -4 85 -4Z" transform="translate(1600.00,0.00)"/></g><g class="wm-l" style="--wm-k:wmL3"><path d="M139 0Q120 75 108 125.5Q96 176 90 212Q84 248 84 279Q84 325 94 356Q98.6 370.3 103.6 385.2L92 387Q56 393 44 413Q32 433 32 463Q32 506 44.5 540Q57 574 67 597H86V582Q86 569 92 561.5Q98 554 114 551L160 544Q194 540 204 514Q214 488 214 459Q214 440 210 415.5Q206 391 194 361H185Q182 369 177 372Q172 375 157 377L144.3 379Q141.8 369.2 139.5 356.5Q136 337 136 309Q136 270 143 241Q150 212 159 192Q168 172 174 159H221.8L314.2 385.3L302 387Q265 392 253 412.5Q241 433 241 463Q241 506 253.5 540Q266 574 276 597H295V583Q295 570 301 562Q307 554 323 551L370 544Q404 540 414.5 514Q425 488 425 459Q425 440 421 415.5Q417 391 405 361H396Q393 369 384.5 372.5Q376.9 375.6 361.7 378.4L272.7 159H424Q439 195 452.5 223Q466 251 479 273Q492 295 504 313L528 350Q538 366 539 374.5Q540 383 528 385L493 391Q468 395 459.5 411.5Q451 428 451 452Q451 479 458 508Q465 537 473 561.5Q481 586 486 597H505V583Q505 567 510.5 560Q516 553 530 551L570 545Q594 541 606.5 530.5Q619 520 619 494V450Q619 431 617 416Q615 401 610.5 389.5Q606 378 599 368L563 314Q538 276 518.5 233.5Q499 191 485 147.5Q471 104 462 59L449 0Z" transform="translate(937.00,0.00)"/></g><g class="wm-l" style="--wm-k:wmL4"><path d="M20 0 55 161H168Q188 161 201.0 177.0Q214 193 220.5 215.5Q227 238 228 260L233 329Q235 356 226.5 365.5Q218 375 200 378L125 389Q98 394 86.5 406.0Q75 418 75 450Q75 490 87.0 528.0Q99 566 110 597H129V581Q129 567 135.0 560.0Q141 553 160 550L238 539Q267 535 280.5 520.5Q294 506 292 467L283 326Q282 298 287.5 273.5Q293 249 302.5 227.5Q312 206 322.0 186.5Q332 167 340 148Q354 110 354.0 73.5Q354 37 349 0H330Q324 39 313.5 66.0Q303 93 286.5 114.5Q270 136 243 158L185 0Z" transform="translate(544.00,0.00)"/></g><g class="wm-l" style="--wm-k:wmL5"><path d="M405 -4Q399 -4 393.0 -3.5Q387 -3 382 -2V6Q389 17 390.0 29.0Q391 41 391 75V239Q391 289 398.0 319.5Q405 350 412.5 364.5Q420 379 422 382V384H129Q92 384 74.5 400.5Q57 417 57 462Q57 495 64.0 523.5Q71 552 78.5 571.5Q86 591 88 597H107V586Q107 565 113.0 557.5Q119 550 136 550H451Q475 550 475 527V394L468 385Q453 370 450.0 335.5Q447 301 451 250L463 89Q467 42 452.0 19.0Q437 -4 405 -4ZM85 -4Q75 -4 63 -1V6Q67 11 70.0 19.5Q73 28 73 48V191Q73 244 88.5 268.0Q104 292 130 292Q134 292 137.0 291.5Q140 291 146 289V283Q140 277 137.0 265.0Q134 253 135 236L143 71Q145 32 127.5 14.0Q110 -4 85 -4Z" transform="translate(0.00,0.00)"/></g></g></svg><span class="brand-tag">מושגי חסידות בהישג יד</span></a></h1>
@@ -1389,7 +1418,7 @@ body:not(.phone) .cv{width:100%;max-width:100%;right:auto;transform:none;margin-
 </header>
 <main>
   <div id="results" class="card"></div>
-  <div id="view"></div>
+  <div id="view"><p class="boot">עולים ממדרגה למדרגה…</p></div>
 </main>
 
 <script>
@@ -9600,7 +9629,7 @@ function srRender(){
  if(R.X.length){const X0=R.X.filter(r=>!r.strong),X1=R.X.filter(r=>r.strong);h+=sec("sr-x2","סתירות לכאורה",R.X.length,X0.map(xrow).join("")+(X1.length?`<div class="sr-gl">${X0.length?"המושג מוזכר באחד הצדדים":"המושג מוזכר באחד הצדדים של הסתירה"}</div>`+X1.map(xrow).join(""):""))}
  if(R.P.length)h+=sec("sr-p","מושג מול מושג",R.P.length,R.P.map(r=>`<button type="button" class="sr-row goto" data-i="${r.i}"><span class="sr-main"><b class="sr-t">${r.p.a} <span class="sr-vs">מול</span> ${r.p.b}</b><span class="sr-sub">${srShort(r.p.d,110)}</span></span><span class="sr-go" aria-hidden="true">←</span></button>`).join(""));
  if(R.O.length)h+=`<details class="sr-more"><summary>עוד מקומות שהמילה מופיעה בהם <span class="sr-n">${R.O.length}</span></summary><div class="sr-list">${R.O.map(r=>`<button type="button" class="sr-row sr-small goto" data-i="${r.i}"><span class="sr-main"><span class="sr-k">${r.k}</span> <b>${r.h}</b></span><span class="sr-go" aria-hidden="true">←</span></button>`).join("")}</div></details>`;
- if(!R.hits.length)h+=`<p class="sr-empty">לא נמצא ״${escH(s)}״ בנתונים שבמפה. אפשר לנסות מילה אחרת או חלק מהמילה.</p>`;
+ if(!R.hits.length)h+=`<div class="sr-empty"><b>״${escH(s)}״ עוד לא בהישג יד</b><span>״יגעת ולא מצאת, אל תאמין״, חפש שוב. אולי המושג כתוב אחרת, או מופיע בשם נוסף. כדאי לנסות חלק מהמילה.</span></div>`;
  res.style.display="block";res.innerHTML=h;
  res.querySelector(".sr-x").onclick=()=>{res.style.display="none"};
  res.querySelectorAll(".goto").forEach(a=>{a.onclick=()=>srGo(+a.dataset.i)});
@@ -10066,6 +10095,75 @@ if(typeof vFlowPhone==="function"){const oP=vFlowPhone;vFlowPhone=function(){con
 const h0=(window.__JH0||"").replace("#","");
 if(h0==="journey"){try{history.replaceState({v:"journey"},"","#journey")}catch(e){}J.sub=1;setTab("journey",false);J.sub=0}
 else{const v=cur==="home"?"flow":cur;try{if(cur==="home")history.replaceState({v:"flow"},"","#flow")}catch(e){}setTab(v,false)}
+})();
+</script>
+
+<script>
+/* ===== v23: הידעת, ניתוב כתובות (מושג / 404), העתקת קישור ===== */
+(function(){
+const DIDYOU=[{"id": "w194", "t": "יגיעה", "q": "אפשר להשיג גם מה שלמעלה מההשגה?", "x": "בתורה אפשר להגיע גם מעל המדרגה של האדם. לפי המשך תער״ב, גם מי שעוסק בעניינים שלמעלה מהשגתו, על ידי יגיעה יבוא עליהם, כמאמר ״יגעת ומצאת״.", "s": "המשך תער״ב, חלק ב (עת״ר), ד״ה ליל א׳ דחה״ש העת״ר, תתקצז"}, {"id": "w197", "t": "״מהלכים״ ו״עומדים״", "q": "מי נקרא ״עומד״ ומי ״מהלך״?", "x": "מלאך נקרא ״עומד״: גם כשהוא בתכלית הביטול, הוא נשאר תמיד באותה מדרגה. גם הנשמה, לפני שירדה לעולם, נקראת ״עומדת״. רק אחרי שירדה והתלבשה בגוף ובנפש הבהמית היא נקראת ״מהלך״, כי היא עולה תמיד ממדרגה למדרגה.", "s": "תורה אור, וישב, ל, א"}, {"id": "w180", "t": "גבול ובלי גבול", "q": "יש גבול באין סוף?", "x": "המשך תער״ב מביא שבאין סוף יש גם ״כח הגבול״: אילו היה בו רק כוח בלי גבול, ולא כוח בגבול, הייתה בו חסרון. השלמות היא ששני הכוחות בו.", "s": "המשך תער״ב, חלק ב (עת״ר), ד״ה שש״פ העת״ר, תתקמ"}, {"id": "w181", "t": "״אור״ ולא ״שפע״", "q": "למה בחסידות ובקבלה אומרים ״אור אין סוף״ ולא ״שפע״?", "x": "הצמח צדק מסביר: שפע הוא חלק ממהות המשפיע, ואילו האור אינו ממהות המאור, ולגביו הוא כמו ״אין״. לכן יציאת האור היא דבר חדש.", "s": "דרך מצותיך, תוס׳ ביאור (משנת תקפ״ו), קנב, ב"}, {"id": "w202", "t": "חותם בולט וחותם שוקע", "q": "מה הקשר בין חותם ליראה?", "x": "משל מליקוטי תורה: חותם בולט, כשלוחצים אותו על שעווה, עושה בה צורה שוקעת. כך התגלות גדולתו של הקב״ה, כשהיא נמשכת למטה בעולמות, נעשית בהם יראה.", "s": "ליקוטי תורה, עקב, יג, ג"}, {"id": "w193", "t": "״מים תחתונים בוכים״", "q": "למה ״המים התחתונים בוכים״?", "x": "משל לתשוקה של הנבראים להתכלל במקורם: המים התחתונים ״בוכים״ ואומרים ״אנן בעינן למהוי קדם מלכא״, אנחנו רוצים להיות לפני המלך, כי אינם רוצים להישאר למטה.", "s": "ליקוטי תורה, ראה, כז ד"}, {"id": "w188", "t": "ידיעת החיוב וידיעת השלילה", "q": "מה אומרים כשקוראים לה׳ ״חכם״?", "x": "״ידיעת החיוב״ משיגה את מהות הדבר, מה הוא. ״ידיעת השלילה״ לא מתארת את הדבר עצמו, אלא שוללת ממנו את ההיפך. כך, כשקוראים לה׳ ״חכם״, אין זה תיאור של דרגת החכמה, אלא שלילת ההיפך מחכמה.", "s": "המשך תער״ב, חלק א, ד״ה ש״פ תולדות תער״ג, קצד"}, {"id": "w190", "t": "מעלת הכלים", "q": "מה חשוב יותר, האור או הכלי?", "x": "נדמה שהאור חשוב מהכלי שמקבל אותו. אבל המשך תער״ב מבאר שיש מעלה בכלים על האורות: שורש הכלים הוא מה״רשימו״, רושם מאין סוף שלפני הצמצום.", "s": "המשך תער״ב, חלק א, ד״ה יום ב׳ דחה״ש תער״ב, יז"}, {"id": "w200", "t": "קדוש פירושו מובדל", "q": "מה פירוש ״קדוש״?", "x": "בחסידות ״קדוש״ פירושו ״מובדל״. בליקוטי תורה זה מוסבר בפסוק ״אני הוי׳ לא שניתי״: אצל ה׳ אין שום שינוי בין לפני בריאת העולם לאחריה.", "s": "ליקוטי תורה, אמור, לא, א"}, {"id": "w196", "t": "נפש, רוח, נשמה, חיה ויחידה", "q": "למה הנשמה נקראת ״יחידה״?", "x": "לנשמה חמישה שמות, מהנמוך לגבוה. במדרש כל שם מוסבר כך: חיה – כשכל האיברים מתים, היא חיה. יחידה – האיברים באים בזוגות, והיא יחידה.", "s": "בראשית רבה יד, ט"}, {"id": "w185", "t": "יתרון האור מן החשך", "q": "למה דווקא מתוך החושך?", "x": "אור שבא מתוך חושך נעלה מאור רגיל. באגרת הקודש: צדקה שאדם נותן כשהוא מבטל את טבעו ורצונו הגופני מפני רצון ה׳ היא ״אתכפיא״, ובזה מתעלה כבוד ה׳, ״כיתרון האור מן החשך״.", "s": "אגרת הקודש, סימן יב"}, {"id": "w186", "t": "שתי תקופות בימות המשיח", "q": "כמה תקופות יהיו בימות המשיח?", "x": "הרבי מסביר שבימות המשיח יהיו שתי תקופות. בראשונה יתבטל רק שעבוד מלכויות, ועדיין ״עולם כמנהגו נוהג״.", "s": "תורת מנחם, תשל״ג ח״ד, שיחת י״ב תמוז ה׳תשל״ג, 51"}, {"id": "w204", "t": "מלכות דאין סוף", "q": "מה עלה במחשבה לפני הכל?", "x": "״מלכות דאין סוף״ היא מה שעלה במחשבתו הפשוטה של ה׳: ״אנא אמלוך״, אני אמלוך. המשך תער״ב אומר שהמחשבה הזאת היא סיבה כללית לכל סדר ההשתלשלות.", "s": "המשך תער״ב, חלק ג, המשך בכתב שלא נאמר, א׳ריח"}, {"id": "w201", "t": "עלמא דאתכסיא ועלמא דאתגליא", "q": "איפה ״ים״ ו״יבשה״ בתוך האדם?", "x": "״עלמא דאתכסיא״ הוא העולם הנסתר, ו״עלמא דאתגליא״ הוא העולם הגלוי. בתורה אור: למעלה הם כמו ״ים״ ו״יבשה״. וכך גם באדם, שהוא ״עולם קטן״: השכל הוא עלמא דאתכסיא, כי הוא בהעלם, והמידות הן עלמא דאתגליא, כי הן גלויות לעומת השכל.", "s": "תורה אור, בשלח, סד, ב"}];
+const WIDS=new Set(W.flatMap(s=>s.nodes.map(n=>n.id)));
+let dyI=Math.floor(Math.random()*DIDYOU.length);
+function dyHTML(){const d=DIDYOU[dyI];
+ return `<aside class="dy" aria-label="הידעת?" aria-live="polite"><div class="dy-k"><i></i>הידעת?</div><h3 class="dy-q">${d.q}</h3><p class="dy-x">${d.x}</p>${srcLine("✓ "+d.s)}<div class="dy-f"><a class="dy-go" href="#${d.id}" data-id="${d.id}">למושג ״${d.t.replace(/״/g,"")}״ ←</a><button type="button" class="dy-n">עוד נקודה</button></div></aside>`}
+function dyBind(box){
+ box.querySelector(".dy-go").onclick=e=>{e.preventDefault();openConcept(e.currentTarget.dataset.id,true)};
+ box.querySelector(".dy-n").onclick=()=>{dyI=(dyI+1+Math.floor(Math.random()*(DIDYOU.length-1)))%DIDYOU.length;const n=document.createElement("div");n.innerHTML=dyHTML();const nb=n.firstElementChild;box.replaceWith(nb);dyBind(nb);nb.querySelector(".dy-n").focus()};
+}
+function placeDY(){
+ if(cur!=="flow"||view.querySelector(".dy"))return;
+ const sub=[...view.children].find(c=>c.classList.contains("subtabs"));
+ if(sub)sub.insertAdjacentHTML("afterend",dyHTML());else view.insertAdjacentHTML("afterbegin",dyHTML());
+ dyBind(view.querySelector(".dy"));
+}
+function openConcept(id,push){
+ if(cur!=="flow")setTab("flow",false);
+ if(push){try{history.pushState({v:"flow",c:id},"","#"+id)}catch(e){}}
+ cvOpen(id);
+}
+let last404="";
+function show404(h){
+ last404=h;
+ const isC=/^w\d+$/.test(h);
+ cur="nf";document.body.classList.remove("is-home");
+ tabsEl.innerHTML=TABSHOW.map(([k,n])=>`<button class="tab" data-k="${k}">${n}</button>`).join("");
+ tabsEl.querySelectorAll("button").forEach(b=>b.onclick=()=>{setTab(b.dataset.k);window.scrollTo({top:0})});
+ const r=document.getElementById("results");if(r)r.style.display="none";
+ view.innerHTML=`<section class="nf" role="alert"><div class="nf-k">404</div>`+
+  (isC?`<h2>המושג לא נמצא</h2><p>אין באתר מושג בכתובת הזאת, לפחות לא בשם הזה. אפשר לחפש אותו, או להתחיל מהתרשים.</p>`
+      :`<h2>הדף לא נמצא</h2><p>בכתובת הזאת אין מושג. אפשר לחפש אותו, או לחזור לתרשים.</p>`)+
+  `<div class="nf-b"><button type="button" class="btn pri nf-p">לתרשים</button><button type="button" class="btn nf-s">חיפוש מושג</button></div></section>`+dyHTML();
+ view.querySelector(".nf-p").onclick=()=>{setTab("flow");window.scrollTo({top:0})};
+ view.querySelector(".nf-s").onclick=()=>{const q=document.getElementById("q");if(q){q.focus();q.scrollIntoView({block:"center"})}};
+ dyBind(view.querySelector(".dy"));
+}
+function route(h){
+ h=(h||"").replace(/^#/,"");try{h=decodeURIComponent(h)}catch(e){}
+ if(!h||h==="home"||h==="journey"||views.some(x=>x[0]===h))return false;
+ if(WIDS.has(h)){openConcept(h,false);try{history.replaceState({v:"flow",c:h},"","#"+h)}catch(e){}return true}
+ show404(h);try{history.replaceState({v:"flow",nf:h},"","#"+h)}catch(e){}return true;
+}
+/* הידעת מופיע בראש התרשים (העמוד הראשי) */
+const oST=setTab;setTab=function(t){if(t==="nf"){show404(last404);return}const r=oST.apply(this,arguments);placeDY();return r};
+if(typeof vFlow==="function"){const a=vFlow;vFlow=function(){const r=a.apply(this,arguments);placeDY();return r}}
+if(typeof vFlowPhone==="function"){const b=vFlowPhone;vFlowPhone=function(){const r=b.apply(this,arguments);placeDY();return r}}
+/* העתקת קישור למושג */
+const linkBtn=id=>`<button type="button" class="cv-link" data-id="${id}">העתקת קישור</button>`;
+if(typeof cvDetail==="function"){const c=cvDetail;cvDetail=function(id){return c.apply(this,arguments)+linkBtn(id)}}
+if(typeof cvPhoneDet==="function"){const p=cvPhoneDet;cvPhoneDet=function(n){return p.apply(this,arguments)+linkBtn(n.id)}}
+let tT=0;function toast(t){let el=document.querySelector(".toast");if(!el){el=document.createElement("div");el.className="toast";el.setAttribute("role","status");document.body.appendChild(el)}el.textContent=t;el.classList.add("on");clearTimeout(tT);tT=setTimeout(()=>el.classList.remove("on"),2600)}
+function copy(u){const ok=()=>toast("הקישור הועתק · יפוצו מעיינותיך חוצה");
+ const fb=()=>{try{const ta=document.createElement("textarea");ta.value=u;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();document.execCommand("copy");ta.remove();ok()}catch(e){toast(u)}};
+ if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(u).then(ok,fb);else fb()}
+document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest(".cv-link");if(!b)return;e.preventDefault();e.stopPropagation();copy(location.href.split("#")[0]+"#"+b.dataset.id)},true);
+/* חזרה/קדימה בדפדפן, ושינוי ידני של הכתובת */
+window.addEventListener("popstate",e=>{const s=e.state;
+ if(s&&s.nf){show404(s.nf);return}
+ if(s&&s.c){cvOpen(s.c);return}
+ if(!s)route(location.hash);
+});
+/* כניסה: כתובת של מושג פותחת אותו; כתובת לא מוכרת מציגה את דף ה־404 */
+if(!route(window.__JH0||""))placeDY();
 })();
 </script>
 </body>
