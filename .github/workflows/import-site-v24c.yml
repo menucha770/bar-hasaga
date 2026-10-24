@@ -1,0 +1,24 @@
+name: import-site-v24c
+on:
+  push:
+    paths: [".github/workflows/import-site-v24c.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch index.html and verify
+        run: |
+          curl -fsSL --retry 5 -o index.html "https://chabad-map.sites.tab.bot/?nc=$GITHUB_RUN_ID"
+          echo "8411c6bcd1aec4ba72431eff1ee32a38480541d1d2e5ff250b190bc630efbde8  index.html" | sha256sum -c -
+      - name: Commit
+        run: |
+          git config user.name "menucha770"
+          git config user.email "346415404+menucha770@users.noreply.github.com"
+          git add index.html
+          git rm -q .github/workflows/import-site-v24c.yml
+          git commit -m "ניסוח פונה לכולם (ספר המותג)"
+          git push
