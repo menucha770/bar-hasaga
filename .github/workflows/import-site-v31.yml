@@ -1,0 +1,24 @@
+name: import-site-v31
+on:
+  push:
+    paths: [".github/workflows/import-site-v31.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch index.html and verify
+        run: |
+          curl -fsSL --retry 5 -o index.html "https://chabad-map.sites.tab.bot/?nc=$GITHUB_RUN_ID"
+          echo "e474717071c576d763d860421fe006e8281460a0b92e0426c8e9ca7a73d7be60  index.html" | sha256sum -c -
+      - name: Commit
+        run: |
+          git config user.name "menucha770"
+          git config user.email "346415404+menucha770@users.noreply.github.com"
+          git add index.html
+          git rm -q .github/workflows/import-site-v31.yml
+          git commit -m "v31: נוסח קליל + רשימו"
+          git push
