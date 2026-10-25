@@ -1,0 +1,24 @@
+name: import-site-v29
+on:
+  push:
+    paths: [".github/workflows/import-site-v29.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch index.html and verify
+        run: |
+          curl -fsSL --retry 5 -o index.html "https://chabad-map.sites.tab.bot/?nc=$GITHUB_RUN_ID"
+          echo "debd6c044697af4d63f72ad4fe84c06609583944e6f81d993bc7bbf80ecd9a63  index.html" | sha256sum -c -
+      - name: Commit
+        run: |
+          git config user.name "menucha770"
+          git config user.email "346415404+menucha770@users.noreply.github.com"
+          git add index.html
+          git rm -q .github/workflows/import-site-v29.yml
+          git commit -m "העמקת 43 ההרחבות הוותיקות לפי כל הרבויים"
+          git push
