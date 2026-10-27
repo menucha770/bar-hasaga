@@ -1,0 +1,24 @@
+name: import-site-v35
+on:
+  push:
+    paths: [".github/workflows/import-site-v35.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch index.html and verify
+        run: |
+          curl -fsSL --retry 5 -o index.html "https://chabad-map.sites.tab.bot/?nc=$GITHUB_RUN_ID"
+          echo "1859a6d6df1b62f5991cc381b53b2df41209351e03d658c1e37df4652511e25d  index.html" | sha256sum -c -
+      - name: Commit
+        run: |
+          git config user.name "menucha770"
+          git config user.email "346415404+menucha770@users.noreply.github.com"
+          git add index.html
+          git rm -q .github/workflows/import-site-v35.yml
+          git commit -m "v35: תרשים אמיתי גם בנייד"
+          git push
