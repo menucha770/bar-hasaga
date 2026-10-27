@@ -1511,6 +1511,30 @@ body:not(.phone) .cv{width:100%;max-width:100%;right:auto;transform:none;margin-
 @keyframes nfIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.nf-dot,.nf-a1,.nf-a2,.nf-a3{animation:none}}
 </style>
+<style id="v35-chart">
+/* v35: התרשים נראה כתרשים גם בטלפון; אשכול = תיבה אחת עם תג ״+N״ */
+.cv .cvn small{font-size:11.5px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cv .cvg-x{all:unset;position:absolute;top:6px;left:7px;box-sizing:border-box;min-width:26px;height:19px;padding:0 6px;border-radius:10px;background:#F8F9FB;border:1px solid #2B6E6A;color:#2B6E6A;font:700 11.5px/17px Assistant,sans-serif;text-align:center;cursor:pointer;z-index:3;direction:ltr}
+.cv .cvg-x:hover,.cv .cvg-x:focus-visible,.cv .cvg.ex .cvg-x{background:#2B6E6A;color:#F8F9FB}
+.cv .cvg-x:focus-visible{outline:2px solid #1F4A80;outline-offset:2px}
+.cv .cvg .cvg-ms{border-top:1px solid #D5DCE5}
+body.phone .cv{width:calc(100vw - 24px);right:auto;transform:none;margin-inline:0}
+.cv-chart.cvph .cv-band{border-radius:12px}
+.cv-chart.cvph .cv-bh{top:9px;right:12px;left:12px;width:auto;flex-direction:row;align-items:center;gap:8px}
+.cv-chart.cvph .cv-bh .cv-tt{margin-top:0;font-size:14.5px;line-height:1.25}
+.cv-chart.cvph .cvn{padding:14px 5px 8px;border-radius:10px}
+.cv-chart.cvph .cvn b{font-size:13.5px;line-height:1.22;overflow-wrap:break-word}
+.cv-chart.cvph .cvn b::before{display:none}
+.cv-chart.cvph .cv-step{top:3px;right:7px;font-size:10.5px}
+.cv-chart.cvph .cvg-h{padding:14px 5px 8px}
+.cv-chart.cvph .cvg-x{top:3px;left:4px;min-width:22px;height:16px;padding:0 4px;font-size:10.5px;line-height:14px}
+.cv-chart.cvph .cvg-m{font-size:12px;padding:5px 4px}
+.cv-e.far{opacity:0!important}
+.cv-hot .cv-e.far{opacity:1!important}
+body.phone .cv-drawer{width:100vw;border:0;padding:50px 18px 40px;font-size:15.5px}
+body.phone .cv-x{top:8px;left:8px;font-size:30px;padding:6px 10px}
+body.phone .cv-off .cvx{max-width:100%}
+</style>
 </head>
 <body>
 <header>
@@ -42832,7 +42856,7 @@ function cvToggle(C){
  return `<div class="cv-top"><div class="cv-seg" role="tablist" aria-label="בחירת תרשים">
   <button type="button" role="tab" data-c="basic" aria-selected="${CV_MODE==="basic"}" class="${CV_MODE==="basic"?"on":""}">למתחילים <span>${nb}</span></button>
   <button type="button" role="tab" data-c="adv" aria-selected="${CV_MODE==="adv"}" class="${CV_MODE==="adv"?"on":""}">למתקדמים <span>${na}</span></button></div>
-  <p class="cv-note hint">${CV_MODE==="basic"?`קו אחד, מאין סוף ועד התכלית: ${nb} מושגי יסוד, מתוך ${nt} מושגים באתר. קוראים מלמעלה למטה, ובתוך כל שלב מימין לשמאל, לפי המספרים.`:`התרשים המלא: ${na} מושגים ו-${C.edges.length} קשרים, ועוד ${nd} מושגים להעמקה (${nt} בסך הכל). קוראים מלמעלה למטה, ובתוך כל שלב מימין לשמאל, לפי המספרים. כשמצביעים על מושג או פותחים אותו, מופיעים גם הקשרים שלו שחוזרים לשלב קודם.`} לוחצים על מושג כדי לפתוח את ההסבר המלא.</p></div>`;
+  <p class="cv-note hint">${CV_MODE==="basic"?`קו אחד, מאין סוף ועד התכלית: ${nb} מושגי יסוד, מתוך ${nt} מושגים באתר. קוראים מלמעלה למטה, ובתוך כל שלב מימין לשמאל, לפי המספרים.`:`התרשים המלא: ${na} מושגים ו-${C.edges.length} קשרים, ועוד ${nd} מושגים להעמקה (${nt} בסך הכל). קוראים מלמעלה למטה, ובתוך כל שלב מימין לשמאל, לפי המספרים. כשמצביעים על מושג או פותחים אותו, מופיעים גם הקשרים הארוכים שלו ואלה שחוזרים לשלב קודם.`} לוחצים על מושג כדי לפתוח את ההסבר המלא.</p></div>`;
 }
 function cvBindToggle(){view.querySelectorAll(".cv-seg button").forEach(b=>b.onclick=()=>{if(CV_MODE===b.dataset.c)return;CV_MODE=b.dataset.c;const y=window.scrollY;vFlow();window.scrollTo({top:y})})}
 /* מושגים שאינם בתרשים הנוכחי */
@@ -42903,16 +42927,21 @@ function cvShift(bx,dr){
  host.classList.add("cv-shift");host.style.translate=dx?dx+"px 0":"";
 }
 function vFlow(){
- if(isPhone())return vFlowPhone();
+ /* v35: גם בטלפון התרשים מצויר כתרשים (תיבות וחיצים), לא כרשימה */
+ const P=isPhone();
  const C=cvChart(CV_MODE);
  let h=LVLEGEND+cvToggle(C)+`<div class="cv" id="cvwrap"><div class="cv-chart" id="cvchart"></div></div>`+cvOffHTML(C,false)+
  `<aside class="cv-drawer" id="cvdrawer" hidden aria-label="הסבר המושג"><button type="button" class="cv-x" id="cvx" aria-label="סגירה">×</button><div class="cv-in" id="cvin"></div></aside>`+
- (typeof SUBFLOWS!=="undefined"&&SUBFLOWS.length?`<h2 id="cv-sfh">תרשימי משנה</h2><p class="hint">תהליך אחד בכל תרשים. אפשר לבחור תרשים, וללחוץ על תיבה כדי לפתוח מתחתיה את ההסבר והמקור.</p><div class="tabs sfbar" id="sfbar">${SUBFLOWS.map((s,i)=>`<button type="button" class="tab" data-i="${i}">${s.title}</button>`).join("")}</div><div id="sfintro" class="hint"></div><div id="sfbox"></div>`:"");
+ (typeof SUBFLOWS!=="undefined"&&SUBFLOWS.length&&P?`<h2 id="cv-sfh">תרשימי משנה</h2>`+SUBFLOWS.map((sf,i)=>{const ed=sf.edges||[];
+   return `<details class="mstage" data-sfi="${i}"><summary>${sf.title}</summary><p class="hint">${sf.intro||""}</p>${sf.nodes.map(n=>{const nx=ed.filter(e=>e.from===n.id).map(e=>(sf.nodes.find(y=>y.id===e.to)||{}).t).filter(Boolean);
+    return `<details class="mnode"><summary>${n.t}</summary><p>${n.d||""}</p>${n.src?srcLine((n.conf==="ודאי"?"✓ ":"")+n.src):""}${nx.length?`<div class="mnext">ממשיך אל: ${nx.join(", ")}</div>`:""}</details>`}).join("")}</details>`}).join(""):"")+
+ (typeof SUBFLOWS!=="undefined"&&SUBFLOWS.length&&!P?`<h2 id="cv-sfh">תרשימי משנה</h2><p class="hint">תהליך אחד בכל תרשים. אפשר לבחור תרשים, וללחוץ על תיבה כדי לפתוח מתחתיה את ההסבר והמקור.</p><div class="tabs sfbar" id="sfbar">${SUBFLOWS.map((s,i)=>`<button type="button" class="tab" data-i="${i}">${s.title}</button>`).join("")}</div><div id="sfintro" class="hint"></div><div id="sfbox"></div>`:"");
  view.innerHTML=h;
  cvBindToggle();
  const ch=$("cvchart"),dr=$("cvdrawer"),din=$("cvin");
  let sel=null;
  const showSf=i=>{
+  if(P){const d=view.querySelector('details[data-sfi="'+i+'"]');if(d){d.open=true;d.scrollIntoView({behavior:"smooth",block:"start"})}return}
   const s=SUBFLOWS[i];
   view.querySelectorAll("#sfbar .tab").forEach((b,j)=>b.classList.toggle("on",j===i));
   $("sfintro").textContent=s.intro||"";
@@ -42923,7 +42952,7 @@ function vFlow(){
  };
  const close=()=>{dr.setAttribute("hidden","");cvShift(null);sel=null;cvHl(null);view.querySelectorAll(".cvx.on").forEach(b=>b.classList.remove("on"))};
  const open=id=>{
-  sel=id;din.innerHTML=cvDetail(id);const bx0=ch.querySelector('[data-id="'+id+'"]')||view.querySelector('.cvx[data-id="'+id+'"]');dr.classList.remove("right"); /* v14: החלונית נפתחת תמיד בצד שמאל; אם התיבה שנלחצה מוסתרת מתחתיה, מזיזים את התרשים ימינה */dr.removeAttribute("hidden");cvShift(bx0,dr);dr.removeAttribute("hidden");dr.scrollTop=0;cvHl(id);
+  sel=id;din.innerHTML=cvDetail(id);const bx0=ch.querySelector('[data-id="'+id+'"]')||view.querySelector('.cvx[data-id="'+id+'"]');dr.classList.remove("right"); /* v14: החלונית נפתחת תמיד בצד שמאל; אם התיבה שנלחצה מוסתרת מתחתיה, מזיזים את התרשים ימינה */dr.removeAttribute("hidden");if(!P)cvShift(bx0,dr);dr.removeAttribute("hidden");dr.scrollTop=0;cvHl(id);
   view.querySelectorAll(".cvx").forEach(b=>b.classList.toggle("on",b.dataset.id===id));
   din.querySelectorAll(".cv-go").forEach(b=>b.onclick=()=>{const t=b.dataset.go;open(t);const bx=ch.querySelector('[data-id="'+t+'"]')||view.querySelector('.cvx[data-id="'+t+'"]');if(bx)bx.scrollIntoView({behavior:"smooth",block:"center"})});
   din.querySelectorAll(".cv-sf").forEach(b=>b.onclick=()=>{const i=+b.dataset.sf;close();showSf(i);const t=$("cv-sfh");if(t)t.scrollIntoView({behavior:"smooth",block:"start"})});
@@ -42942,7 +42971,7 @@ function vFlow(){
   ch.querySelectorAll(".cv-e").forEach(p=>{const on=!!id&&(p.dataset.f===id||p.dataset.t===id||(p.dataset.of||"").split(" ").includes(id));p.classList.toggle("on",on);if(on&&g){const c=p.cloneNode();c.setAttribute("marker-end",p.getAttribute("marker-end").replace("cvah","cvahn"));g.appendChild(c)}});
  };
  cvDraw(C,ch,{open:id=>sel===id?close():open(id),hover:id=>cvHl(id||sel)});
- if(typeof SUBFLOWS!=="undefined"&&SUBFLOWS.length){
+ if(typeof SUBFLOWS!=="undefined"&&SUBFLOWS.length&&!P){
   view.querySelectorAll("#sfbar .tab").forEach(b=>b.onclick=()=>showSf(+b.dataset.i));
   showSf(0);
  }
@@ -42957,24 +42986,28 @@ function cvRows(C,R){
  return Object.assign({},C,{stages,si,edges,back});
 }
 function cvDraw(C0,ch,on){
- const Wd=ch.clientWidth||1000;
- const C=cvRows(C0,Math.max(4,Math.floor((Wd-18-7*Math.min(6,(C0.back||[]).length)-16-112+20)/(122+20))));ch._C=C;
+ const Wd=ch.clientWidth||1000,P=document.body.classList.contains("phone")||Wd<600;ch.classList.toggle("cvph",P);
+ const EXP=ch._exp||(ch._exp=new Set());
+ const C=cvRows(C0,P?3:Math.max(4,Math.floor((Wd-18-7*Math.min(6,(C0.back||[]).length)-16-112+20)/(122+20))));ch._C=C;
  const cols=Math.max(...C.stages.map(s=>s.nodes.length));
  const skips=C.edges.filter(e=>C.si[e.to].k-C.si[e.from].k>1);
  /* v34: קשרים שחוזרים לשלב קודם: נתיבים בשוליים השמאליים; נתיב משותף לקשרים שאינם חופפים בגובה */
  const BK=(C.back||[]).map(e=>({e,lo:C.si[e.to].k,hi:C.si[e.from].k})).sort((p,q)=>(p.hi-p.lo)-(q.hi-q.lo)),lnUse=[];
  BK.forEach(b=>{let t=0;while(lnUse[t]&&lnUse[t].some(([l,h])=>!(b.hi<l||b.lo>h)))t++;(lnUse[t]=lnUse[t]||[]).push([b.lo,b.hi]);b.t=t;b.e._ln=t});
- const NL=lnUse.length;
- const G=cols>12?12:cols>5?20:28,MR=16,ML=18+NL*7,HC=cols>5?112:150,HD=20;
- const BW=Math.min(cols<=4?206:180,Math.floor((Wd-ML-MR-HC-(cols-1)*G)/cols));
+ const NL=P?0:lnUse.length;
+ const G=P?14:cols>12?12:cols>5?20:28,MR=P?6:16,ML=P?6:18+NL*7,HC=P?0:cols>5?112:150;
+ C.stages.forEach(s=>{s.hd=P?(s.cont?6:40):20});
+ const BW=P?Math.floor((Wd-ML-MR-(cols-1)*G)/cols):Math.min(cols<=4?206:180,Math.floor((Wd-ML-MR-HC-(cols-1)*G)/cols));
  const gridW=cols*BW+(cols-1)*G,gx0=ML+((Wd-ML-MR-HC)-gridW)/2; /* x של העמודה השמאלית */
  const slotX=q=>gx0+gridW-BW/2-q*(BW+G)/2; /* q בחצאי עמודות, 0 = הימנית */
  /* תיבות */
  ch.innerHTML=`<svg class="cv-svg" aria-hidden="true"></svg>`+C.stages.map((s,k)=>(s.cont?`<div class="cv-band cont" data-k="${k}"><div class="cv-bh"></div></div>`:`<div class="cv-band" data-k="${k}"><div class="cv-bh"><span class="cv-no">${CV_HEB[s.no]}</span><span class="cv-tt">${s.st}</span></div></div>`)).join("")+
   C.stages.map(s=>s.nodes.map(n=>{const st=C.step[n.id]?`<span class="cv-step" aria-label="שלב ${C.step[n.id]}">${C.step[n.id]}</span>`:"",kd=C.mode!=="basic"?cvKids(n.id):[];
-  if(!kd.length)return `<button type="button" class="cvn fcnode" data-id="${n.id}" style="width:${BW}px">${st}<b>${n.t}</b>${n.sub?`<small>${n.sub}</small>`:""}</button>`;
-  /* v34: אשכול: המושג הראשי, ומתחתיו המושגים הקרובים, כל אחד כפתור שפותח את העמוד שלו */
-  return `<div class="cvn cvg fcnode" data-id="${n.id}" role="group" aria-label="${n.t} ועוד ${kd.length}" style="width:${BW}px"><button type="button" class="cvg-h" data-id="${n.id}">${st}<b>${n.t}</b>${n.sub?`<small>${n.sub}</small>`:""}</button><div class="cvg-ms">${kd.map(x=>`<button type="button" class="cvg-m" data-id="${x}">${cvNode(x).t}</button>`).join("")}</div></div>`}).join("")).join("");
+  const sb=!P&&n.sub?`<small>${n.sub}</small>`:"";
+  if(!kd.length)return `<button type="button" class="cvn fcnode" data-id="${n.id}" style="width:${BW}px">${st}<b>${n.t}</b>${sb}</button>`;
+  /* v35: אשכול: תיבה אחת עם תג ״+N״; לחיצה על התג פותחת את המושגים הקרובים בתוך התיבה */
+  const ex=EXP.has(n.id);
+  return `<div class="cvn cvg fcnode${ex?" ex":""}" data-id="${n.id}" role="group" aria-label="${n.t} ועוד ${kd.length}" style="width:${BW}px"><button type="button" class="cvg-h" data-id="${n.id}">${st}<b>${n.t}</b>${sb}</button><button type="button" class="cvg-x" data-x="${n.id}" aria-expanded="${ex}" aria-label="${ex?"סגירת":"הצגת"} ${kd.length} מושגים קרובים">${ex?"−":"+"}${kd.length}</button>${ex?`<div class="cvg-ms">${kd.map(x=>`<button type="button" class="cvg-m" data-id="${x}">${cvNode(x).t}</button>`).join("")}</div>`:""}</div>`}).join("")).join("");
  const B={};ch.querySelectorAll(".cvn").forEach(b=>B[b.dataset.id]=b);
  /* מיקום אופקי: תכנות דינמי, כדי שקווים בין שלבים יהיו כמה שיותר ישרים */
  const X={},Q2=2*(cols-1);
@@ -42992,8 +43025,8 @@ function cvDraw(C0,ch,on){
   for(let i=n-1;i>=0;i--){X[ids[i]]=slotX(q);q=bk[i][q]}
  });
  /* גבהים */
- ch.querySelectorAll(".cv-bh").forEach(el=>el.style.width=(HC-14)+"px");
- C.stages.forEach((s,k)=>{const hh=Math.max(...s.nodes.map(n=>B[n.id].offsetHeight));s.nodes.forEach(n=>B[n.id].style.height=hh+"px");s.h=hh;s.hh=ch.querySelector('.cv-band[data-k="'+k+'"] .cv-bh').offsetHeight});
+ if(!P)ch.querySelectorAll(".cv-bh").forEach(el=>el.style.width=(HC-14)+"px");
+ C.stages.forEach((s,k)=>{const hh=Math.max(...s.nodes.map(n=>B[n.id].offsetHeight));s.nodes.forEach(n=>B[n.id].style.height=hh+"px");s.h=hh;s.hh=P?0:ch.querySelector('.cv-band[data-k="'+k+'"] .cv-bh').offsetHeight});
  /* קשרים בתוך שלב */
  const same=C.edges.filter(e=>C.si[e.from].k===C.si[e.to].k);
  const arcs=same.filter(e=>Math.abs(C.si[e.to].i-C.si[e.from].i)!==1);
@@ -43003,12 +43036,12 @@ function cvDraw(C0,ch,on){
  const usedCh=[];
  const cvChan=(e,ka,kb)=>{
   const xa=X[e.from],xb=X[e.to],lo=8,hi=Wd-MR-HC-4;let free=[[lo,hi]];
-  for(let m=ka+1;m<kb;m++)C.stages[m].nodes.forEach(n=>{const l=X[n.id]-BW/2-9,r=X[n.id]+BW/2+9;free=free.flatMap(([p,q])=>r<=p||l>=q?[[p,q]]:[[p,Math.min(q,l)],[Math.max(p,r),q]].filter(([u,v])=>v-u>2))});
+  for(let m=ka+1;m<kb;m++)C.stages[m].nodes.forEach(n=>{const l=X[n.id]-BW/2-(P?3:9),r=X[n.id]+BW/2+(P?3:9);free=free.flatMap(([p,q])=>r<=p||l>=q?[[p,q]]:[[p,Math.min(q,l)],[Math.max(p,r),q]].filter(([u,v])=>v-u>2))});
   let best=null,bc=1e18;const tryX=x=>{const c=Math.abs(x-xa)+Math.abs(x-xb)+Math.abs(x-xb)*.01;if(c<bc){bc=c;best=x}};
   free.forEach(([p,q])=>{const mid=(p+q)/2;[Math.min(Math.max(xb,p+4),q-4),Math.min(Math.max(xa,p+4),q-4),q-p<60?mid:null].forEach(x=>{if(x!==null)tryX(x)})});
   let x=best===null?lo:best;
   /* מרחק מקווים אחרים שכבר עוברים כאן */
-  const near=usedCh.filter(u=>Math.abs(u-x)<6).length;x+=near*7*(x>Wd/2?-1:1);usedCh.push(x);return x;
+  const near=usedCh.filter(u=>Math.abs(u-x)<(P?3:6)).length;x+=near*(P?3:7)*(x>Wd/2?-1:1);usedCh.push(x);return x;
  };
  /* מסלולים בין שלבים: אוטובוס אחד לכל מקור בכל רווח */
  const gaps=C.stages.map(()=>({buses:[]}));
@@ -43027,14 +43060,16 @@ function cvDraw(C0,ch,on){
   g.buses.filter(b=>b.merge&&span(b)>2).sort((p,q)=>Math.min(...p.xs)-Math.min(...q.xs)).forEach(b=>{const l=Math.min(...b.xs),r=Math.max(...b.xs);let t=0;while(ends2[t]!==undefined&&ends2[t]>l-10)t++;ends2[t]=r;b.t=n0+t});
   g.n=n0+ends2.length;});
  /* מיקום אנכי */
- let y=0;const TR=9;
+ let y=0;const TR=P?7:9;
  const boN={};(C.back||[]).forEach(e=>{const k=C.si[e.from].k;boN[k]=(boN[k]||0)+1});
- C.stages.forEach((s,k)=>{s.y0=y;s.by=y+HD;s.y1=Math.max(s.by+s.h+18+(s.arcs?12+s.arcs*8:0)+(boN[k]?4+boN[k]*6:0),s.y0+s.hh+30);
-  const g=gaps[k];g.y0=s.y1;g.h=k<C.stages.length-1?Math.max(46,30+g.n*TR):0;
+ C.stages.forEach((s,k)=>{s.y0=y;s.by=y+s.hd;s.y1=Math.max(s.by+s.h+18+(s.arcs?12+s.arcs*8:0)+(!P&&boN[k]?4+boN[k]*6:0),P?0:s.y0+s.hh+30)-(P?8:0);
+  const g=gaps[k];g.y0=s.y1;g.h=k<C.stages.length-1?(P?Math.max(C.stages[k+1].cont?26:30,18+g.n*TR):Math.max(46,30+g.n*TR)):0;
   g.ty=t=>Math.round(g.y0+g.h/2-((g.n-1)*TR)/2+t*TR);y=s.y1+g.h;});
  const H=y;ch.style.height=H+"px";
  C.stages.forEach((s,k)=>{const el=ch.querySelector('.cv-band[data-k="'+k+'"]');el.style.top=s.y0+"px";el.style.height=(s.y1-s.y0)+"px";
   s.nodes.forEach(n=>{const b=B[n.id];b.style.left=(X[n.id]-BW/2)+"px";b.style.top=s.by+"px"})});
+ /* v35: שלב שנפרש על כמה שורות מוצג כרצועה אחת */
+ C.stages.forEach((s,k)=>{if(!s.cont)return;let f=k;while(f>0&&C.stages[f].cont)f--;const el0=ch.querySelector('.cv-band[data-k="'+f+'"]'),el=ch.querySelector('.cv-band[data-k="'+k+'"]');el0.style.height=(s.y1-C.stages[f].y0)+"px";el.style.display="none"});
  /* ציור */
  const R=7;
  const rp=p=>{let d=`M${p[0][0]} ${p[0][1]}`;for(let i=1;i<p.length-1;i++){const a=p[i-1],b=p[i],c=p[i+1];const d1=Math.hypot(b[0]-a[0],b[1]-a[1]),d2=Math.hypot(c[0]-b[0],c[1]-b[1]);if(d1<.5||d2<.5)continue;const r=Math.min(R,d1/2,d2/2);
@@ -43052,14 +43087,14 @@ function cvDraw(C0,ch,on){
     else pts=[[xa,yb],[xa,ty],[xb,ty],[xb,sb.by-1]];
    }else{
     const g2=gaps[b.k-1],ib=e._ib,ty2=g2.ty(ib.t===undefined?0:ib.t);
-    pts=[[xa,yb],[xa,ty],[e._gx,ty],[e._gx,ty2],[xb,ty2],[xb,sb.by-1]];cls+=" skip";
+    pts=[[xa,yb],[xa,ty],[e._gx,ty],[e._gx,ty2],[xb,ty2],[xb,sb.by-1]];cls+=" skip";if(sb.sk-sa.sk>1||(P&&b.k-a.k>2))cls+=" far";
    }
   }
   paths+=`<path class="${cls}" data-f="${e.from}" data-t="${e.to}" data-of="${(e.of||[]).join(" ")}" d="${rp(pts)}" marker-end="url(#cvah)"><title>${cvNode(e.from).t} ← ${cvNode(e.to).t}${e.label?": "+e.label:""}</title></path>`;
  });
  /* v34: קשר שחוזר לשלב קודם: יורד מתחת לשלב שלו, עובר בנתיב בשוליים השמאליים, ונכנס לתיבה מלמעלה */
  const boJ={},biJ={};
- (C.back||[]).forEach(e=>{const a=C.si[e.from],b=C.si[e.to],sa=C.stages[a.k],sb=C.stages[b.k];
+ (P?[]:C.back||[]).forEach(e=>{const a=C.si[e.from],b=C.si[e.to],sa=C.stages[a.k],sb=C.stages[b.k];
   const jo=boJ[a.k]=(boJ[a.k]||0)+1,ji=biJ[b.k]=(biJ[b.k]||0)+1;
   const lx=ML-6-e._ln*7,xs=X[e.from]-BW/2+12+((jo-1)%4)*6,ys=sa.y1-6-(jo-1)*6,xe=X[e.to]-BW/2+12+((ji-1)%4)*6,ye=sb.by-5-((ji-1)%3)*5;
   const pts=[[xs,sa.by+sa.h],[xs,ys],[lx,ys],[lx,ye],[xe,ye],[xe,sb.by-1]];
@@ -43070,7 +43105,8 @@ function cvDraw(C0,ch,on){
  /* אירועים */
  Object.values(B).forEach(b=>{const id=b.dataset.id;
   if(b.classList.contains("cvg")){
-   b.querySelectorAll("button").forEach(x=>{const xid=x.dataset.id;x.onclick=ev=>{ev.stopPropagation();on.open(xid)};x.onmouseenter=()=>on.hover(xid);x.onmouseleave=()=>on.hover(xid===id?null:id);x.onfocus=()=>on.hover(xid);x.onblur=()=>on.hover(null)});
+   const xb=b.querySelector(".cvg-x");if(xb)xb.onclick=ev=>{ev.stopPropagation();EXP.has(id)?EXP.delete(id):EXP.add(id);cvDraw(C0,ch,on);const nb=ch.querySelector('.cvg-x[data-x="'+id+'"]');if(nb)nb.focus({preventScroll:true})};
+   b.querySelectorAll("button[data-id]").forEach(x=>{const xid=x.dataset.id;x.onclick=ev=>{ev.stopPropagation();on.open(xid)};x.onmouseenter=()=>on.hover(xid);x.onmouseleave=()=>on.hover(xid===id?null:id);x.onfocus=()=>on.hover(xid);x.onblur=()=>on.hover(null)});
    b.onmouseleave=()=>on.hover(null);return}
   b.onclick=()=>on.open(id);b.onmouseenter=()=>on.hover(id);b.onmouseleave=()=>on.hover(null);b.onfocus=()=>on.hover(id);b.onblur=()=>on.hover(null)});
  on.hover(null);
