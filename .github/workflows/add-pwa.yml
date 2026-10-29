@@ -1,0 +1,25 @@
+name: add-pwa
+on:
+  push:
+    paths: [".github/workflows/add-pwa.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify and patch index.html
+        run: |
+          echo "38ffbfc8df9e6ee38643ef4ef94c66d7823f158c14290bb823da56c83a9a460a  index.html" | sha256sum -c -
+          python3 .github/pwa-patch.py
+          echo "b696b1129fa1c26ea415c00d972889de4f372805c57e297429f91b4afa62aa57  index.html" | sha256sum -c -
+      - name: Commit
+        run: |
+          git config user.name "menucha770"
+          git config user.email "346415404+menucha770@users.noreply.github.com"
+          git add index.html
+          git rm -q .github/workflows/add-pwa.yml .github/pwa-patch.py
+          git commit -m "PWA: אפשר להתקין את האתר בטלפון והוא עובד גם בלי אינטרנט"
+          git push
