@@ -2,7 +2,7 @@
    שומר את האתר בטלפון כדי שיעבוד גם בלי אינטרנט.
    הדף עצמו נטען תמיד קודם מהרשת (כדי שעדכונים יופיעו מיד), ורק אם אין רשת – מהעותק השמור.
    אחרי שינוי באייקונים או בקבצים האלה: להעלות את מספר הגרסה ב-VERSION. */
-const VERSION = "bar-hasaga-v37-abbr1";
+const VERSION = "bar-hasaga-v38-abbr-tanya1";
 const PAGE_CACHE = VERSION + "-page";
 const ASSET_CACHE = VERSION + "-assets";
 const FONT_CACHE = "bar-hasaga-fonts-v1";
