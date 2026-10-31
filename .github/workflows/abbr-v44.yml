@@ -1,0 +1,22 @@
+name: abbr-v44
+on:
+  push:
+    paths: [".github/workflows/abbr-v44.yml"]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch index.html and sw.js
+        run: python3 .github/abbr-v44-patch.py
+      - name: Commit
+        run: |
+          git config user.name "menucha770"
+          git config user.email "346415404+menucha770@users.noreply.github.com"
+          git add index.html sw.js
+          git rm -q .github/workflows/abbr-v44.yml .github/abbr-v44-patch.py
+          git commit -m "ראשי תיבות: 14 פיענוחים נוספים (2,360 בסך הכל)"
+          git push
